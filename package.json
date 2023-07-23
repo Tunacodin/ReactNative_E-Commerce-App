@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@ant-design/react-native": "^5.0.4",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-native-fontawesome": "^0.3.0",
     "@react-navigation/bottom-tabs": "^6.5.7",

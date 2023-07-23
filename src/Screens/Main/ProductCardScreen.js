@@ -2,7 +2,7 @@ import React from 'react';
 import {View,Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-const ProductsCardScreen = () => {
+const ProductCardScreen = () => {
   return (
     <SafeAreaView>
       <Text>Ürünler!</Text>
@@ -10,4 +10,4 @@ const ProductsCardScreen = () => {
   );
 };
 
-export default ProductsCardScreen;
+export default ProductCardScreen;

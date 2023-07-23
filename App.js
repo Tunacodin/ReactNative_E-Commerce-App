@@ -12,26 +12,39 @@ import ProfileScreen from './src/Screens/Main/ProfileScreen';
 import SearchScreen from './src/Screens/Main/SearchScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import ProductsCardScreen from './src/Screens/Main/ProductsCardScreen';
+import { View,Animated} from 'react-native';
+import ProductCardScreen from './src/Screens/Main/ProductCardScreen';
+import NotificationScreen from './src/Screens/Main/NotificationScreen';
+
+
+const FadeInView = props => {
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
+
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 10000,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim]);
+
+  return (
+    <Animated.View // Special animatable View
+      style={{
+        ...props.style,
+        opacity: fadeAnim, // Bind opacity to animated value
+      }}>
+      {props.children}
+    </Animated.View>
+  );
+};
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const LoginStack = () => {
   return (
-    <Stack.Navigator
-      tabBarOptions={{
-        showLabel: "false",
-        activeTintColor: '#e91e63',
-        inactiveTintColor: 'gray',
-
-        style: {
-          backgroundColor: 'powderblue',
-          bottom:20,
-        },
-
-      }}
-    >
+    <Stack.Navigator>
       <Stack.Screen
         name="ForgotPassword"
         options={{headerShown: false}}
@@ -58,47 +71,227 @@ const LoginStack = () => {
 
 function HomeStack() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home"
-        options={{
+    <Tab.Navigator
+      
+      screenOptions={{
         headerShown: false,
-        tabBarLabel: 'Anasayfa',
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={color} size={size} />
-        ),
-
-      }} component={HomeScreen} />
+        tabBarActiveTintColor: '#e91e63',
+        tabBarInactiveTintColor: 'gray',
+        tabBarStyle: {
+          position: 'absolute',
+          backgroundColor: '#fff',
+          borderTopWidth: 0,
+          shadowOffset: {width: 5, height: 3},
+          shadowColor: '#000',
+          shadowOpacity: 0.5,
+          elevation: 5,
+          bottom: 10,
+          height: 60,
+          borderRadius: 20,
+          marginHorizontal: 10,
+          padding: 5,
+          
+        },
+        
+      }}>
+      <Tab.Screen
+        name="Anasayfa"
+        options={{
+          tabBarLabelStyle: {
+            fontSize: 16,
+            fontWeight: 'bold',
+            marginBottom: 5,
+            fontFamily: 'cursive',
+          },
+          tabBarIcon: ({focused}) => (
+            <View
+              style={
+                focused
+                  ? {
+                      position: 'absolute',
+                      top: -30,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: '#fff',
+                      width: 60,
+                      height: 60,
+                      borderRadius: 30,
+                      shadowOffset: {width: 5, height: 3},
+                      shadowColor: '#000',
+                      shadowOpacity: 0.5,
+                      elevation: 5,
+                    }
+                  : {}
+              }>
+              <MaterialCommunityIcons
+                name="home"
+                color={focused ? '#e91e63' : 'gray'}
+                size={focused ? 30 : 25}
+              />
+            </View>
+          ),
+        }}
+        component={HomeScreen}
+      />
 
       <Tab.Screen
-        name="Search"
+        name="Kategori"
         options={{
-          headerShown: false,
-         tabBarLabel: 'Ara',
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name='search-web' color={color} size={size} />
-          ),}}
+          tabBarLabelStyle: {
+            fontSize: 16,
+            fontWeight: 'bold',
+            marginBottom: 5,
+            fontFamily: 'cursive',
+          },
+          tabBarIcon: ({focused}) => (
+            <View
+              style={
+                focused
+                  ? {
+                      position: 'absolute',
+                      top: -30,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: '#fff',
+                      width: 60,
+                      height: 60,
+                      borderRadius: 30,
+                      shadowOffset: {width: 5, height: 3},
+                      shadowColor: '#000',
+                      shadowOpacity: 0.5,
+                      elevation: 5,
+                    }
+                  : {
+                    
+                  }
+              }>
+              <MaterialCommunityIcons
+                name="dots-grid"
+                color={focused ? '#e91e63' : 'gray'}
+                size={focused ? 30 : 25}
+              />
+            </View>
+          ),
+        }}
         component={SearchScreen}
       />
       <Tab.Screen
-        name="ProductsCard"
+        name="ProductCard"
         options={{
-          headerShown: false,
-         tabBarLabel: 'Sepet',
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="cart" color={color} size={size} />
-          ),}}
-        component={ProductsCardScreen}
+          title: 'Sepet',
+          tabBarLabelStyle: {
+            fontSize: 16,
+            fontWeight: 'bold',
+            marginBottom: 5,
+            fontFamily: 'cursive',
+          },
+          tabBarIcon: ({focused}) => (
+            <View
+              style={
+                focused
+                  ? {
+                      position: 'absolute',
+                      top: -30,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: '#fff',
+                      width: 60,
+                      height: 60,
+                      borderRadius: 30,
+                      shadowOffset: {width: 5, height: 3},
+                      shadowColor: '#000',
+                      shadowOpacity: 0.5,
+                      elevation: 5,
+                    }
+                  : {}
+              }>
+              <MaterialCommunityIcons
+                name="cart"
+                color={focused ? '#e91e63' : 'gray'}
+                size={focused ? 30 : 25}
+              />
+            </View>
+          ),
+        }}
+        component={ProductCardScreen}
       />
-
-            
+      <Tab.Screen
+        name="Notification"
+        options={{
+          title: 'Bildirimler',
+          tabBarLabelStyle: {
+            fontSize: 16,
+            fontWeight: 'bold',
+            marginBottom: 5,
+            fontFamily: 'cursive',
+          },
+          tabBarIcon: ({focused}) => (
+            <View
+              style={
+                focused
+                  ? {
+                      position: 'absolute',
+                      top: -30,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: '#fff',
+                      width: 60,
+                      height: 60,
+                      borderRadius: 30,
+                      shadowOffset: {width: 5, height: 3},
+                      shadowColor: '#000',
+                      shadowOpacity: 0.5,
+                      elevation: 5,
+                    }
+                  : {}
+              }>
+              <MaterialCommunityIcons
+                name="bell"
+                color={focused ? '#e91e63' : 'gray'}
+                size={focused ? 30 : 25}
+              />
+            </View>
+          ),
+        }}
+        component={NotificationScreen}
+      />
 
       <Tab.Screen
         name="Profile"
         options={{
-          headerShown: false,
-          tabBarLabel: 'Profil',
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+          tabBarLabelStyle: {
+            fontSize: 16,
+            fontWeight: 'bold',
+            marginBottom: 5,
+            fontFamily: 'cursive',
+          },
+          tabBarLabel: 'Hesabım',
+          tabBarIcon: ({focused}) => (
+            <View
+              style={
+                focused
+                  ? {
+                      position: 'absolute',
+                      top: -30,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: '#fff',
+                      width: 60,
+                      height: 60,
+                      borderRadius: 30,
+                      shadowOffset: {width: 5, height: 3},
+                      shadowColor: '#000',
+                      shadowOpacity: 0.5,
+                      elevation: 5,
+                    }
+                  : {}
+              }>
+              <MaterialCommunityIcons
+                name="account"
+                color={focused ? '#e91e63' : 'gray'}
+                size={focused ? 30 : 25}
+              />
+            </View>
           ),
         }}
         component={ProfileScreen}
