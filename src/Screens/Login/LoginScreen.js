@@ -1,24 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   SafeAreaView,
   View,
   Text,
+  TextInput,
   Image,
   useWindowDimensions,
 } from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
-import Input from '../../../components/Input';
+import Input from '../../../components/Input/Input';
 import ButtonPrimary from '../../../components/Buttons/ButtonPrimary';
 import ButtonSecondary from '../../../components/Buttons/ButtonSecondary';
 import ButtonThird from '../../../components/Buttons/ButtonThird';
-
 const LoginScreen = ({navigation}) => {
-  const {height} = useWindowDimensions();
+
+
+  const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
-  const onSignInPressed = () => {
-    alert('Giriş Yapıldı');
-  };
+
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -46,12 +44,15 @@ const LoginScreen = ({navigation}) => {
           }}>
           <Input
             placeholder="Kullanıcı Adı"
-            value={username}
-            setValue={setUsername}
+            value={user}
+            onChangeText={setUser}
+            
           />
 
-          <Input placeholder="Şifre" value={password} setValue={setPassword} />
+          <Input  placeholder="Şifre" value={password} onChangeText={setPassword} />
         </View>
+
+    
         <View
           style={{
             width: '100%',
@@ -59,7 +60,10 @@ const LoginScreen = ({navigation}) => {
             alignItems: 'center',
             gap: 10,
           }}>
-          <ButtonPrimary yazı="Giriş Yap" onPress={()=>navigation.navigate("Home")} />
+          <ButtonPrimary
+            yazı="Giriş Yap"
+            onPress={() => navigation.navigate('Register',{user})}
+          />
           <ButtonThird yazı="Google ile Devam Et" />
           <ButtonSecondary
             onPress={() => navigation.navigate('Register')}
@@ -69,7 +73,7 @@ const LoginScreen = ({navigation}) => {
             onPress={() => navigation.navigate('ForgotPassword')}
             yazı="Şifremi unuttum"
           />
-       
+
         </View>
       </View>
     </SafeAreaView>

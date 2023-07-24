@@ -1,15 +1,12 @@
-import React,{useState} from 'react'
-import { View,SafeAreaView,Image } from 'react-native'
-import Input from '../../../components/Input'
+import React, {useState} from 'react';
+import {View, SafeAreaView, Image} from 'react-native';
+import Input from '../../../components/Input/Input';
 import ButtonSecondary from '../../../components/Buttons/ButtonSecondary';
 import ButtonPrimary from '../../../components/Buttons/ButtonPrimary';
 import ButtonThird from '../../../components/Buttons/ButtonThird';
 import ButtonFourth from '../../../components/Buttons/ButtonFourth';
 
-
-
-function ForgotPasswordScreen({ navigation }) {
-  
+function ForgotPasswordScreen({navigation}) {
   const [email, setEmail] = useState('');
   return (
     <View
@@ -39,10 +36,13 @@ function ForgotPasswordScreen({ navigation }) {
           yazı="Şifre Sıfırlama Kodu Gönder"
           onPress={() => navigation.navigate('CreatePassword')}
         />
-        <ButtonSecondary yazı="Geri" onPress={() => navigate('Login')} />
+        <ButtonSecondary
+          yazı="Geri"
+          onPress={() => navigation.navigate('Login')}
+        />
       </View>
     </View>
   );
 }
 
-export default ForgotPasswordScreen
+export default ForgotPasswordScreen;

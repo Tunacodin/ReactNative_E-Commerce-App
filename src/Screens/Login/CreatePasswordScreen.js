@@ -1,12 +1,11 @@
-import React,{useState} from 'react'
-import { View,Image} from 'react-native'
-import Input from '../../../components/Input'
-import ButtonThird from '../../../components/Buttons/ButtonThird'
-import ButtonSecondary from '../../../components/Buttons/ButtonSecondary'
+import React, {useState} from 'react';
+import {View, Image} from 'react-native';
+import Input from '../../../components/Input/Input';
+import ButtonThird from '../../../components/Buttons/ButtonThird';
+import ButtonSecondary from '../../../components/Buttons/ButtonSecondary';
 
 const CreatePasswordScreen = ({navigation}) => {
-
-  const[password,setPassword]=useState("")
+  const [password, setPassword] = useState('');
 
   return (
     <View
@@ -31,16 +30,27 @@ const CreatePasswordScreen = ({navigation}) => {
           alignItems: 'center',
           gap: 10,
         }}>
-        <Input placeholder="Yeni Şifre" value={password} setValue={setPassword} />
-        <Input placeholder="Yeni Şifreni Tekrar Gir" value={password} setValue={setPassword} />
+        <Input
+          placeholder="Yeni Şifre"
+          value={password}
+          setValue={setPassword}
+        />
+        <Input
+          placeholder="Yeni Şifreni Tekrar Gir"
+          value={password}
+          setValue={setPassword}
+        />
         <ButtonThird
           yazı="Onayla"
           onPress={() => navigation.navigate('Login')}
         />
-        <ButtonSecondary yazı="Geri" onPress={() => navigation.navigate('ForgotPassword')} />
+        <ButtonSecondary
+          yazı="Geri"
+          onPress={() => navigation.navigate('Login')}
+        />
       </View>
     </View>
   );
-}
+};
 
-export default CreatePasswordScreen
+export default CreatePasswordScreen;

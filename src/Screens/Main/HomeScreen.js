@@ -1,18 +1,19 @@
-import React from 'react'
-import { View ,Text} from "react-native";
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React,{useContext} from 'react';
+import {View, Text, Image, FlatList} from 'react-native';
+import LoginContext from '../Login/LoginContext';
 
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation,route }) => {
+  const { username,password } = useContext(LoginContext)
+    
   return (
-    <SafeAreaView>
-
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home Screen</Text>
       <Text>
-          Home!
-      </Text>
-
-    </SafeAreaView>
+        {kullanıcıAdı}
+  </Text>
+    </View>
   );
-}
+};
 
-export default HomeScreen
+export default HomeScreen;
