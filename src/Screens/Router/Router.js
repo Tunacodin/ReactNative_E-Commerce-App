@@ -13,8 +13,7 @@ import LoginScreen from '../Login/LoginScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
-import {navigationRef} from './RootNavigation';
+import { navigationRef } from '../../Assets/RootNavigation';
 
 
 
@@ -237,7 +236,7 @@ function HomeStack() {
 
 const Router = () => {
   return (
-    <NavigationContaine ref={navigationRef}>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen
           name="LoginStack"
@@ -250,7 +249,7 @@ const Router = () => {
           options={{headerShown: false}}
           component={HomeStack}></Stack.Screen>
       </Stack.Navigator>
-    </NavigationContaine>
+    </NavigationContainer>
   );
 }
 

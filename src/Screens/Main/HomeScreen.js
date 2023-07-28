@@ -1,15 +1,13 @@
 import React,{useContext} from 'react';
 import {View, Text, Image, FlatList} from 'react-native';
-import LoginContext from '../Login/LoginContext';
 import { UserContext } from '../../Contexts/UserContext';
 
 
-const HomeScreen = ({ navigation, route }) => {
+const HomeScreen = ({ navigation }) => {
   
-  const { username, password } = route.params;
 
-  let { userName } = useContext(UserContext);
-  console.log("userName", userName);
+  let { username,password } = useContext(UserContext);
+  console.log("userName", username);
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

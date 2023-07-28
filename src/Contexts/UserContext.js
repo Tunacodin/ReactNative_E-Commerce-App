@@ -3,13 +3,17 @@ import {createContext, useEffect, useState} from 'react';
 export const UserContext = createContext();
 
 export const UserContextProvider = props => {
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <UserContext.Provider
       value={{
-        userName,
-        setUserName,
+        username,
+        setUsername,
+        password,
+        setPassword,
+
       }}>
       {props.children}
     </UserContext.Provider>
