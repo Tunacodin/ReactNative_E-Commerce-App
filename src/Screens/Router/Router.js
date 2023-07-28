@@ -13,9 +13,8 @@ import LoginScreen from '../Login/LoginScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import LoginContext from '../Login/LoginContext';
-
-
+import {NavigationContainer} from '@react-navigation/native';
+import {navigationRef} from './RootNavigation';
 
 
 
@@ -110,6 +109,8 @@ function HomeStack() {
                 color={focused ? '#e91e63' : 'gray'}
                 size={focused ? 30 : 25}
               />
+
+              
             </View>
           ),
         }}
@@ -232,24 +233,25 @@ function HomeStack() {
   );
 }
 
+// Stack Navigator for Login Screen and Home Screen
 
 const Router = () => {
-   return (
-     <NavigationContainer>
-       <Stack.Navigator>
-         <Stack.Screen
-           name="LoginStack"
-           options={{headerShown: false}}
-           component={LoginStack}
-         />
-         <Stack.Screen
-           name="HomeStack"
-           options={{headerShown: false}}
-           component={HomeStack}></Stack.Screen>
-         </Stack.Navigator>
+  return (
+    <NavigationContaine ref={navigationRef}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="LoginStack"
+          options={{headerShown: false}}
+          component={LoginStack}
+        />
 
-     </NavigationContainer>
-   );
+        <Stack.Screen
+          name="HomeStack"
+          options={{headerShown: false}}
+          component={HomeStack}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContaine>
+  );
 }
 
 export default Router

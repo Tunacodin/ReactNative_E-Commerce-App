@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1039012610964",
+    "project_id": "e-commerc-app-fd3f7",
+    "storage_bucket": "e-commerc-app-fd3f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039012610964:android:760500bd632c30dcce0581",
+        "android_client_info": {
+          "package_name": "com.awesomeproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039012610964-vgg9c8miep1bk6ui0d5c7rbu3cpt303e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwrPHcq_GmdRvhy5W2N8XbpoKfBYBprLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039012610964-vgg9c8miep1bk6ui0d5c7rbu3cpt303e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1039012610964-6a7hbpllr1cdjkm8698e6qeudvd8kmb2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.awesomeproject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

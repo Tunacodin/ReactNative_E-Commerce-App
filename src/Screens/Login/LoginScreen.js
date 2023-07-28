@@ -11,13 +11,84 @@ import Input from '../../../components/Input/Input';
 import ButtonPrimary from '../../../components/Buttons/ButtonPrimary';
 import ButtonSecondary from '../../../components/Buttons/ButtonSecondary';
 import ButtonThird from '../../../components/Buttons/ButtonThird';
+import { UserContext } from '../../Contexts/UserContext';
+import auth from '@react-native-firebase/auth';
+import Toast from 'react-native-toast-message';
+import {navigate} from '../Router/RootNavigation';
+
+
+
 const LoginScreen = ({navigation}) => {
 
 
-  const [user, setUser] = useState('');
+  const [username, setUser] = useState('');
   const [password, setPassword] = useState('');
 
+  //default olarak type= "error verdik" sadece değiştirmek istediğimiz zaman type ı değiştireceğiz
 
+  const showToast = (text, type = 'error') => {
+    Toast.show({
+      type: type,
+      text2: text,
+    });
+  };
+
+  const _handleSignupPress = () => {
+
+    if (username) {
+
+      if (validateEmail(email)) {
+
+        // least 6 char
+        if (password) {
+
+          if (password.length >= 6) {
+
+            auth()
+              .createUserWithEmailAndPassword(email, password)
+              .then(() => {
+                console.log('User account created & signed in!');
+
+                showToast("Kullanıcı Oluşturuldu", "success");
+
+                navigate("Login");
+              })
+              .catch(error => {
+                if (error.code === 'auth/email-already-in-use') {
+                  console.log('That email address is already in use!');
+
+                  showToast("E-mail adresi zaten kullanılıyor");
+                }
+
+                if (error.code === 'auth/invalid-email') {
+                  console.log('That email address is invalid');
+                  showToast("Geçersiz e-mail");
+                }
+
+                console.error(error);
+              });
+
+          } else {
+            // show password alert !
+            showToast("Parola en az 6 karakter olmalı");
+          }
+
+        } else {
+          // show password alert !
+          showToast("Parola Giriniz")
+        }
+
+      } else {
+        // show username alert !
+        showToast("Geçersiz E-mail")
+      }
+
+    } else {
+      // show username alert !
+      showToast("Kullanıcı Adı Giriniz")
+    }
+  }
+  
   return (
     <SafeAreaView style={{flex: 1}}>
       <View
@@ -44,7 +115,7 @@ const LoginScreen = ({navigation}) => {
           }}>
           <Input
             placeholder="Kullanıcı Adı"
-            value={user}
+            value={username}
             onChangeText={setUser}
             
           />
@@ -62,7 +133,10 @@ const LoginScreen = ({navigation}) => {
           }}>
           <ButtonPrimary
             yazı="Giriş Yap"
-            onPress={() => navigation.navigate('Register',{user})}
+            onPress={() => {
+              navigation.navigate('HomeStack', { username })
+              setUserName(username)
+              }}
           />
           <ButtonThird yazı="Google ile Devam Et" />
           <ButtonSecondary
