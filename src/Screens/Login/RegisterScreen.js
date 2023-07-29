@@ -122,8 +122,13 @@ const RegisterScreen = ({ navigation }) => {
             alignItems: 'center',
             gap: 10,
           }}>
-          <ButtonFourth onPress={() => _handleSignupPress } yazı="Kayıt Ol" />
+          <ButtonFourth
+            onPress={() => _handleSignupPress}
+            yazı="Kayıt Ol" />
+          
+
           <ButtonThird yazı="Google ile Devam Et" />
+          
           <ButtonSecondary
             onPress={() => navigate('Login')}
             yazı="Zaten bir hesabın var mı?"

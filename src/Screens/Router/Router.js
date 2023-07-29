@@ -19,6 +19,7 @@ import { navigationRef } from '../../Assets/RootNavigation';
 
 
 
+
 const focusedStyle = {
                  position: 'absolute',
                       top: -30,
@@ -44,6 +45,7 @@ const LoginStack = () => {
         name="Login"
         options={{headerShown: false}}
         component={LoginScreen}
+        
       />
       <Stack.Screen
         name="ForgotPassword"

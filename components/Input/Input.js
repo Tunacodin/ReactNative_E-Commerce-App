@@ -1,14 +1,15 @@
 import React from 'react'
 import {TextInput,View} from "react-native"
 
-const Input = ({value,placeholder,onChangeText,secureTextEntry}) => {
+const Input = ({value,placeholder,onChangeText,secureText}) => {
   return (
       <TextInput
       value={value}
       
         onChangeText={onChangeText}
         placeholder={placeholder}
-       secureTextEntry={secureTextEntry}
+      secureTextEntry={secureText}
+      
 
       style={{
           borderWidth: 1,
