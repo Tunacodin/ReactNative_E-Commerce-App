@@ -1,38 +1,33 @@
-import React from 'react'
+import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {View} from 'react-native';
-import HomeScreen from '../Main/HomeScreen';
-import SearchScreen from '../Main/SearchScreen';
-import ProductCardScreen from '../Main/ProductCardScreen';
-import NotificationScreen from '../Main/NotificationScreen';
-import ProfileScreen from '../Main/ProfileScreen';
+import HomeScreen from '../Main/HomeScreen/HomeScreen';
+import SearchScreen from '../Main/CategoryScreen/CategoryScreen';
+import ProductCardScreen from '../Main/CartScreen/ProductCardScreen';
+import NotificationScreen from '../Main/NotificationScreen/NotificationScreen';
+import ProfileScreen from '../Main/ProfileScreen/ProfileScreen';
 import RegisterScreen from '../Login/RegisterScreen';
 import LoginScreen from '../Login/LoginScreen';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { navigationRef } from '../../Assets/RootNavigation';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {navigationRef} from '../../Assets/RootNavigation';
 import Toast from 'react-native-toast-message';
 
-
-
-
-
-
 const focusedStyle = {
-                 position: 'absolute',
-                      top: -30,
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      backgroundColor: '#fff',
-                      width: 60,
-                      height: 60,
-                      borderRadius: 30,
-                      shadowOffset: {width: 5, height: 3},
-                      shadowColor: '#000',
-                      shadowOpacity: 0.5,
-                      elevation: 5,
-}
+  position: 'absolute',
+  top: -30,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#fff',
+  width: 60,
+  height: 60,
+  borderRadius: 30,
+  shadowOffset: {width: 5, height: 3},
+  shadowColor: '#000',
+  shadowOpacity: 0.5,
+  elevation: 5,
+};
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +38,6 @@ const LoginStack = () => {
         name="Login"
         options={{headerShown: false}}
         component={LoginScreen}
-        
       />
       <Stack.Screen
         name="Register"
@@ -65,11 +59,11 @@ function HomeStack() {
           position: 'absolute',
           backgroundColor: '#fff',
           borderTopWidth: 0,
-          shadowOffset: {width: 5, height: 3},
+          shadowOffset: {width: 5, height: 5},
           shadowColor: '#000',
-          shadowOpacity: 0.5,
+          shadowOpacity: 0.8,
           elevation: 5,
-          bottom: 10,
+          bottom: 5,
           height: 60,
           borderRadius: 20,
           marginHorizontal: 10,
@@ -86,13 +80,7 @@ function HomeStack() {
             fontFamily: 'cursive',
           },
           tabBarIcon: ({focused}) => (
-            <View
-              style={
-                focused
-                   ?
-                      focusedStyle
-                  : {}
-              }>
+            <View style={focused ? focusedStyle : {}}>
               <MaterialCommunityIcons
                 name="home"
                 color={focused ? '#e91e63' : 'gray'}
@@ -114,13 +102,7 @@ function HomeStack() {
             fontFamily: 'cursive',
           },
           tabBarIcon: ({focused}) => (
-            <View
-              style={
-                focused
-                          ?
-                        focusedStyle
-                  : {}
-              }>
+            <View style={focused ? focusedStyle : {}}>
               <MaterialCommunityIcons
                 name="dots-grid"
                 color={focused ? '#e91e63' : 'gray'}
@@ -142,13 +124,7 @@ function HomeStack() {
             fontFamily: 'cursive',
           },
           tabBarIcon: ({focused}) => (
-            <View
-              style={
-                focused
-                          ? 
-                        focusedStyle
-                  : {}
-              }>
+            <View style={focused ? focusedStyle : {}}>
               <MaterialCommunityIcons
                 name="cart"
                 color={focused ? '#e91e63' : 'gray'}
@@ -170,13 +146,7 @@ function HomeStack() {
             fontFamily: 'cursive',
           },
           tabBarIcon: ({focused}) => (
-            <View
-              style={
-                focused
-                          ?
-                        focusedStyle
-                  : {}
-              }>
+            <View style={focused ? focusedStyle : {}}>
               <MaterialCommunityIcons
                 name="bell"
                 color={focused ? '#e91e63' : 'gray'}
@@ -199,13 +169,7 @@ function HomeStack() {
           },
           tabBarLabel: 'Hesabım',
           tabBarIcon: ({focused}) => (
-            <View
-              style={
-                focused
-                          ?
-                        focusedStyle
-                  : {}
-              }>
+            <View style={focused ? focusedStyle : {}}>
               <MaterialCommunityIcons
                 name="account"
                 color={focused ? '#e91e63' : 'gray'}
@@ -224,27 +188,21 @@ function HomeStack() {
 
 const Router = () => {
   return (
-    
-    <NavigationContainer ref={navigationRef}>
+    <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        <Tab.Screen
           name="HomeStack"
+          component={HomeStack}
           options={{headerShown: false}}
-          component={HomeStack}>
-          </Stack.Screen>
-      </Stack.Navigator>
-      
-        <Stack.Screen
+        />
+        <Tab.Screen
           name="LoginStack"
+          component={LoginStack}
           options={{headerShown: false}}
-        component={LoginStack}>
-      </Stack.Screen>
-      
-      
+        />
+      </Stack.Navigator>
     </NavigationContainer>
-
-    
   );
-}
+};
 
-export default Router
+export default Router;
