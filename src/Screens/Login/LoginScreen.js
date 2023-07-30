@@ -11,10 +11,11 @@ import Input from '../../../components/Input/Input';
 import ButtonPrimary from '../../../components/Buttons/ButtonPrimary';
 import ButtonSecondary from '../../../components/Buttons/ButtonSecondary';
 import ButtonThird from '../../../components/Buttons/ButtonThird';
-import { UserContext } from '../../Contexts/UserContext';
 import { navigate } from '../../Assets/RootNavigation';
 import Toast from 'react-native-toast-message';
 import { validateEmail } from '../../helper/functions/MyHelperFunctions';
+import auth from '@react-native-firebase/auth';
+
 
 
 
@@ -45,8 +46,12 @@ const LoginScreen = () => {
                     .signInWithEmailAndPassword(email, password)
                     .then(() => {
                         console.log('user login success !');
-
-                        navigate("HomeTabs")
+                      showToast("Giriş Başarılı", "success");
+                         setEmail('');
+                         setPassword('');
+                      
+                   
+                    
                     })
                     .catch(error => {
                         console.error(error);
@@ -62,7 +67,8 @@ const LoginScreen = () => {
         } else {
             // show username alert !
             showToast("Geçersiz E-mail")
-        }
+     }
+    navigate('HomeStack');
   }
 
 
@@ -93,14 +99,16 @@ const LoginScreen = () => {
           <Input
             placeholder="Email"
             value={email}
-            onChangeText={setEmail}
-            
+            onChangeText={text => setEmail(text)}
           />
 
-          <Input  placeholder="Şifre" value={password} onChangeText={setPassword} />
+          <Input
+            placeholder="Şifre"
+            value={password}
+            onChangeText={text => setPassword(text)}
+          />
         </View>
 
-    
         <View
           style={{
             width: '100%',
@@ -108,22 +116,14 @@ const LoginScreen = () => {
             alignItems: 'center',
             gap: 10,
           }}>
-          <ButtonPrimary
-            yazı="Giriş Yap"
-            onPress={() => _handleLoginPress()
-            
-              }
-          />
+          <ButtonPrimary text="Giriş Yap" onPress={_handleLoginPress()} />
+
+         
           <ButtonThird yazı="Google ile Devam Et" />
           <ButtonSecondary
             onPress={() => navigate('Register')}
-            yazı="Henüz bir hesabın yok mu?"
+            text="Henüz bir hesabın yok mu?"
           />
-          <ButtonSecondary
-            onPress={() => navigate('ForgotPassword')}
-            yazı="Şifremi unuttum"
-          />
-
         </View>
       </View>
     </SafeAreaView>

@@ -6,15 +6,13 @@ import SearchScreen from '../Main/SearchScreen';
 import ProductCardScreen from '../Main/ProductCardScreen';
 import NotificationScreen from '../Main/NotificationScreen';
 import ProfileScreen from '../Main/ProfileScreen';
-import ForgotPasswordScreen from '../Login/ForgotPasswordScreen';
-import CreatePasswordScreen from '../Login/CreatePasswordScreen';
 import RegisterScreen from '../Login/RegisterScreen';
 import LoginScreen from '../Login/LoginScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { navigationRef } from '../../Assets/RootNavigation';
-
+import Toast from 'react-native-toast-message';
 
 
 
@@ -48,16 +46,6 @@ const LoginStack = () => {
         
       />
       <Stack.Screen
-        name="ForgotPassword"
-        options={{headerShown: false}}
-        component={ForgotPasswordScreen}
-      />
-      <Stack.Screen
-        name="CreatePassword"
-        options={{headerShown: false}}
-        component={CreatePasswordScreen}
-      />
-      <Stack.Screen
         name="Register"
         options={{headerShown: false}}
         component={RegisterScreen}
@@ -89,7 +77,7 @@ function HomeStack() {
         },
       }}>
       <Tab.Screen
-        name="Anasayfa"
+        name="Home"
         options={{
           tabBarLabelStyle: {
             fontSize: 16,
@@ -119,7 +107,7 @@ function HomeStack() {
       />
 
       <Tab.Screen
-        name="Kategori"
+        name="Category"
         options={{
           tabBarLabelStyle: {
             fontSize: 16,
@@ -238,6 +226,7 @@ function HomeStack() {
 
 const Router = () => {
   return (
+    
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen
@@ -252,6 +241,9 @@ const Router = () => {
           component={HomeStack}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
+
+  
+
   );
 }
 

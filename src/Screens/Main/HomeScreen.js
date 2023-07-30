@@ -1,22 +1,24 @@
-import React,{useContext} from 'react';
-import {View, Text, Image, FlatList} from 'react-native';
-import { UserContext } from '../../Contexts/UserContext';
+import React, { useState, useEffect } from 'react';
+import { ActivityIndicator, FlatList, View, Text } from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
   
-
-  let { username,password } = useContext(UserContext);
-  console.log("userName", username);
+  if (loading) {
+    return <ActivityIndicator />;
+  }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home Screen</Text>
-      <Text>
-        {username}
-        {password}
-  </Text>
-    </View>
+    <FlatList
+      data={users}
+      renderItem={({ item }) => (
+        <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>User ID: {item.id}</Text>
+          <Text>User Name: {item.name}</Text>
+        </View>
+      )}
+    />
   );
 };
 

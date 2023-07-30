@@ -1,7 +1,7 @@
 import { Text, Pressable} from 'react-native';
 import React from 'react';
 
-const ButtonPrimary = ({yazı,onPress}) => {
+const ButtonPrimary = ({text,onPress}) => {
     return (
         <Pressable
         
@@ -14,7 +14,7 @@ const ButtonPrimary = ({yazı,onPress}) => {
         justifyContent: 'center',
         alignItems: 'center',
           }}>
-        <Text style={{ color: 'white' }}>{yazı}</Text>
+        <Text style={{ color: 'white' }}>{text}</Text>
         
     </Pressable>
   );
