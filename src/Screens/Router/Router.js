@@ -18,6 +18,7 @@ import Toast from 'react-native-toast-message';
 
 
 
+
 const focusedStyle = {
                  position: 'absolute',
                       top: -30,
@@ -34,7 +35,6 @@ const focusedStyle = {
 }
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
 
 const LoginStack = () => {
   return (
@@ -98,8 +98,6 @@ function HomeStack() {
                 color={focused ? '#e91e63' : 'gray'}
                 size={focused ? 30 : 25}
               />
-
-              
             </View>
           ),
         }}
@@ -230,20 +228,22 @@ const Router = () => {
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen
-          name="LoginStack"
-          options={{headerShown: false}}
-          component={LoginStack}
-        />
-
-        <Stack.Screen
           name="HomeStack"
           options={{headerShown: false}}
-          component={HomeStack}></Stack.Screen>
+          component={HomeStack}>
+          </Stack.Screen>
       </Stack.Navigator>
+      
+        <Stack.Screen
+          name="LoginStack"
+          options={{headerShown: false}}
+        component={LoginStack}>
+      </Stack.Screen>
+      
+      
     </NavigationContainer>
 
-  
-
+    
   );
 }
 
