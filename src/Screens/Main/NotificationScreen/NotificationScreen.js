@@ -1,12 +1,14 @@
 import React from 'react'
-import { View,Text} from 'react-native'
+import { View,Text, SafeAreaView} from 'react-native'
+import Header from '../../../../components/Logos/Header';
 
 const NotificationScreen = () => {
   return (
-    <View>
-      <Text>Bildirimler!</Text>
-    </View>
-  )
+    <SafeAreaView>
+      <Header />
+
+    </SafeAreaView>
+  );
 }
 
 export default NotificationScreen

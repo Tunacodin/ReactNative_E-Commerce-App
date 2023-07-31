@@ -14,23 +14,27 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import ButtonPrimary from '../../../../components/Buttons/ButtonPrimary';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {navigate} from '../../../Assets/RootNavigation';
+import { navigate } from '../../../Assets/RootNavigation';
+import Header from '../../../../components/Logos/Header';
+
+
+
 const DATA = [
   {
     id: '1',
     title: 'İkili Gümüş Set',
     subtitle:
       'Afrodit Set Gümüş Mermer / Ücretsiz Kargo / Ürünlerimiz El Yapımı Olduğu İçin 1-3 İş Günü İçerisinde Kargoya Teslim Edilir.',
-    image: 'https://images.pexels.com/photos/3348748/pexels-photo-3348748.jpeg',
     price: '310₺',
     discountedPrice: '120₺',
+    image: require('../../../Images/Tepsiler/altın.jpg'),
   },
   {
     id: '2',
     title: 'Fincan Takımlı Tepsi ',
     subtitle:
       'Fincan Takımlı Tepsi Seti / Ücretsiz Kargo / Ürünlerimiz El Yapımı Olduğu İçin 1-3 İş Günü İçerisinde Kargoya Teslim Edilir.',
-    image: 'https://images.pexels.com/photos/3812944/pexels-photo-3812944.jpeg',
+    image: require('../../../Images/Tepsiler/ikili mermer-2.jpg'),
     price: '460₺',
     discountedPrice: '490₺',
   },
@@ -39,7 +43,7 @@ const DATA = [
     title: 'İkili Altın Set',
     subtitle:
       'Afrodit Set Altın Mermer / Ücretsiz Kargo / Ürünlerimiz El Yapımı Olduğu İçin 1-3 İş Günü İçerisinde Kargoya Teslim Edilir.',
-    image: 'https://images.pexels.com/photos/2100063/pexels-photo-2100063.jpeg',
+    image: require('../../../Images/Tepsiler/Tahta mermer.jpg'),
     price: '540₺',
     discountedPrice: '430₺',
   },
@@ -48,7 +52,7 @@ const DATA = [
     title: 'Masa Lambası',
     subtitle:
       'Masa Lambası / Ücretsiz Kargo / Ürünlerimiz El Yapımı Olduğu İçin 1-3 İş Günü İçerisinde Kargoya Teslim Edilir.',
-    image: 'https://images.pexels.com/photos/3228213/pexels-photo-3228213.jpeg',
+    image: require('../../../Images/Tepsiler/siyah mermer.png'),
     price: '630₺',
     discountedPrice: '230 ₺',
   },
@@ -96,12 +100,12 @@ const HomeScreen = () => {
             }}>
             <Image
               style={{
-                width: '100%',
-                height: '100%',
+                width: "100%",
+                height: "100%" ,
                 resizeMode: 'cover',
                 borderRadius: 10,
               }}
-              source={{uri: item.image}}
+              source={item.image}
             />
           </View>
 
@@ -234,33 +238,7 @@ const HomeScreen = () => {
   }
   return (
     <SafeAreaView>
-      <View
-        style={{
-          width: '100%',
-          height: 50,
-          backgroundColor: 'white',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginBottom: 5,
-          borderRadius: 10,
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 1,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          elevation: 5,
-        }}>
-        <Text
-          style={{
-            fontSize: 30,
-            color: 'black',
-            fontWeight: 'bold',
-            fontFamily: 'cursive',
-          }}>
-          Fenne Design
-        </Text>
-      </View>
+     <Header/>
       <FlatList
         data={DATA}
         renderItem={renderItem}
