@@ -51,12 +51,13 @@ const LoginStack = () => {
 function HomeStack() {
   return (
     <Tab.Navigator
-      initialRouteName='Category'
+      initialRouteName="Category"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: '#e91e63',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
+          
           position: 'absolute',
           backgroundColor: '#fff',
           borderTopWidth: 0,
@@ -95,7 +96,6 @@ function HomeStack() {
 
       <Tab.Screen
         name="Category"
-       
         options={{
           tabBarLabelStyle: {
             fontSize: 16,
@@ -118,7 +118,6 @@ function HomeStack() {
       <Tab.Screen
         name="ProductCard"
         options={{
-          title: 'Sepet',
           tabBarLabelStyle: {
             fontSize: 16,
             fontWeight: 'bold',
@@ -140,7 +139,6 @@ function HomeStack() {
       <Tab.Screen
         name="Notification"
         options={{
-          title: 'Bildirimler',
           tabBarLabelStyle: {
             fontSize: 16,
             fontWeight: 'bold',
@@ -163,13 +161,14 @@ function HomeStack() {
       <Tab.Screen
         name="Profile"
         options={{
+          tabBarShowLabel:false,
           tabBarLabelStyle: {
             fontSize: 16,
             fontWeight: 'bold',
             marginBottom: 5,
             fontFamily: 'cursive',
           },
-          tabBarLabel: 'Hesabım',
+
           tabBarIcon: ({focused}) => (
             <View style={focused ? focusedStyle : {}}>
               <MaterialCommunityIcons

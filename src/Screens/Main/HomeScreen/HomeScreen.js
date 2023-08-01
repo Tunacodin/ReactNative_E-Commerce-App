@@ -27,14 +27,14 @@ const DATA = [
       'Afrodit Set Gümüş Mermer / Ücretsiz Kargo / Ürünlerimiz El Yapımı Olduğu İçin 1-3 İş Günü İçerisinde Kargoya Teslim Edilir.',
     price: '310₺',
     discountedPrice: '120₺',
-    image: require('../../../Images/Tepsiler/altın.jpg'),
+    image: require('../../../Images/ev.jpg'),
   },
   {
     id: '2',
     title: 'Fincan Takımlı Tepsi ',
     subtitle:
       'Fincan Takımlı Tepsi Seti / Ücretsiz Kargo / Ürünlerimiz El Yapımı Olduğu İçin 1-3 İş Günü İçerisinde Kargoya Teslim Edilir.',
-    image: require('../../../Images/Tepsiler/ikili mermer-2.jpg'),
+    image: require('../../../Images/altın.jpg'),
     price: '460₺',
     discountedPrice: '490₺',
   },

@@ -1,12 +1,12 @@
 import React from 'react'
-import { View,Image } from 'react-native'
+import { View,Image, TouchableOpacity, Pressable } from 'react-native'
 import SmallCard from './SmallCard';
 
 
 
 const MermerListCard = () => {
-   const width = 100;
-    const height = 100;
+   const width = "31%";
+    const height = "45%";
   const br = 10;
   const m = 5;
   const bg = 'white';
@@ -14,9 +14,43 @@ const MermerListCard = () => {
 const smallImages = [
   {
     id: '1',
-    image: require('../../src/Images/Tepsiler/mermer tek.jpg'),
+    image: require('../../src/Images/ev.jpg'),
   },
 ];
+  
+  const SmallCard=()=> {
+    return (
+      <View
+        style={{
+          width: width,
+          height: height,
+          borderRadius: br,
+          backgroundColor: bg,
+          margin: m,
+        }}>
+        <View
+          style={{
+            width: '100%',
+            height: '100%',
+            borderRadius: br,
+            backgroundColor: bg,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Image
+            style={{
+              width: '100%',
+              height: '100%',
+              resizeMode: 'cover',
+              borderRadius: 10,
+            }}
+            source={require('../../src/Images/ev.jpg')}
+          />
+        </View>
+      </View>
+    );
+}
+
   return (
     <View
       style={{
@@ -38,26 +72,13 @@ const smallImages = [
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <View
-          style={{
-            width: width,
-            height: height,
-            borderRadius: br,
-            backgroundColor: bg,
-            margin: m,
-          }}>
-          <Image source={smallImages.image}></Image>
-        </View>
-        <View
-          style={{
-            width: 200,
-            height: 200,
-            borderRadius: br,
-            backgroundColor: bg,
-            margin: m,
-          }}>
-          <Image source={smallImages.image}></Image>
-        </View>
+  
+        <SmallCard/>
+        <SmallCard/>
+        <SmallCard/>
+        <SmallCard/>
+        <SmallCard/>
+        <SmallCard/>
       </View>
     </View>
   );
