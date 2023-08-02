@@ -1,23 +1,33 @@
-import React from 'react'
-import { View } from 'react-native'
+import React from 'react';
+import {View} from 'react-native';
+import SmallCard from './SmallCard';
 
 const AhsapListCard = () => {
   return (
     <View
       style={{
-        flex: 1,
-        backgroundColor: '#7286D3',
+        flex: 8,
         padding: 5,
         borderRadius: 10,
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 2,
-        },
-        shadowOpacity: 0.9,
-        elevation: 5,
-      }}></View>
-  );
-}
+        marginBottom: 60,
+      }}>
+      <SmallCard source={require('../../src/Images/set2.png')} text="Setler" />
+      <SmallCard
+        source={require('../../src/Images/siyahtepsi.png')}
+        text="Tepsiler"
+      />
+      <SmallCard
+        source={require('../../src/Images/dekor.png')}
+        text="Dekorasyon"
+      />
 
-export default AhsapListCard
+      <SmallCard source={require('../../src/Images/sunum.png')} text="Sunum" />
+      <SmallCard
+        source={require('../../src/Images/aksesuar.png')}
+        text="Aksesuar"
+      />
+    </View>
+  );
+};
+
+export default AhsapListCard;
