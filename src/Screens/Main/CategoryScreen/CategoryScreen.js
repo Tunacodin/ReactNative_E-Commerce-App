@@ -6,9 +6,10 @@ import MermerListCard from '../../../../components/Cards/MermerListCard';
 import AhsapListCard from '../../../../components/Cards/AhsapListCard';
 import SmallCard from '../../../../components/Cards/SmallCard';
 import Carousel from '../../../../components/Carousel/Carousel';
-
+import {useFonts} from 'react-native-google-fonts';
 
 const CategoryScreen = () => {
+
   return (
     <SafeAreaView
       style={{
@@ -38,7 +39,7 @@ const CategoryScreen = () => {
                 fontSize: 24,
                 fontWeight: '900',
                 color: '#fff',
-                fontFamily: 'cursive',
+                fontFamily: 'Poppins-Black',
                 textAlign: 'center',
                 letterSpacing: 1,
               }}>
@@ -79,7 +80,7 @@ const CategoryScreen = () => {
                 fontSize: 25,
                 fontWeight: '900',
                 color: 'rgba(0,0,0,0.7)',
-                marginVertical:15,
+                marginVertical: 15,
                 fontFamily: 'cursive',
                 textAlign: 'center',
                 textDecorationLine: 'underline',
@@ -91,8 +92,8 @@ const CategoryScreen = () => {
           <MermerListCard />
           <View
             style={{
-            marginVertical:15,
-          }}>
+              marginVertical: 15,
+            }}>
             <Text
               style={{
                 fontSize: 25,
