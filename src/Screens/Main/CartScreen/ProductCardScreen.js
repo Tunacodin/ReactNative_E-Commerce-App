@@ -12,6 +12,7 @@ import {create} from 'react-test-renderer';
 import Header from '../../../../components/Logos/Header';
 import SmallCard from '../../../../components/Cards/SmallCard';
 import Swiper from 'react-native-swiper';
+import ProductCard from '../../../../components/Cards/ProductCard';
 
 const {width} = Dimensions.get('window');
 
@@ -55,44 +56,75 @@ const ProductCardScreen = () => {
             />
           </View>
 
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
+          <View
             style={{
-              width: '100%',
-              paddingVertical: 5,
+              width,
+              marginTop: 10,
+              height: 350,
+              shadowColor: 'black',
+              shadowRadius: 5,
+              shadowOffset: {
+                width: 0,
+                height: 6,
+              },
+              elevation: 8,
             }}>
-            <Image
+            <Text
               style={{
-                resizeMode: 'contain',
-                width: 210,
-                height: 300,
-                marginHorizontal: 5,
-                borderRadius: 10,
-              }}
-              source={require('../../../Images/aksesuar.png')}
-            />
-            <Image
+                fontSize: 0,
+                fontWeight: 'bold',
+              }}>
+              Çok Satan Ürünler
+            </Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
               style={{
-                resizeMode: 'contain',
-                width: 210,
-                height: 300,
-                marginHorizontal: 5,
-                borderRadius: 10,
-              }}
-              source={require('../../../Images/set.png')}
-            />
-            <Image
-              style={{
-                resizeMode: 'contain',
-                width: 210,
-                height: 300,
-                marginHorizontal: 5,
-                borderRadius: 10,
-              }}
-              source={require('../../../Images/set2.png')}
-            />
-          </ScrollView>
+                width: '100%',
+                paddingVertical: 5,
+                borderTopWidth: 1,
+                borderEndWidth: 1,
+              }}>
+              <Image
+                style={{
+                  resizeMode: 'contain',
+                  width: 210,
+                  height: 300,
+                  marginHorizontal: 5,
+                  borderRadius: 10,
+                }}
+                source={require('../../../Images/aksesuar.png')}
+              />
+              <Image
+                style={{
+                  resizeMode: 'contain',
+                  width: 210,
+                  height: 300,
+                  marginHorizontal: 5,
+                  borderRadius: 10,
+                }}
+                source={require('../../../Images/set.png')}
+              />
+              <Image
+                style={{
+                  resizeMode: 'contain',
+                  width: 210,
+                  height: 300,
+                  marginHorizontal: 5,
+                  borderRadius: 10,
+                }}
+                source={require('../../../Images/set2.png')}
+              />
+            </ScrollView>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              gap: 5,
+            }}>
+            <ProductCard />
+            <ProductCard />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
