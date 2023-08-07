@@ -14,10 +14,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import ButtonPrimary from '../../../../components/Buttons/ButtonPrimary';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { navigate } from '../../../Assets/RootNavigation';
+import {navigate} from '../../../Assets/RootNavigation';
 import Header from '../../../../components/Logos/Header';
-
-
 
 const DATA = [
   {
@@ -100,8 +98,8 @@ const HomeScreen = () => {
             }}>
             <Image
               style={{
-                width: "100%",
-                height: "100%" ,
+                width: '100%',
+                height: '100%',
                 resizeMode: 'cover',
                 borderRadius: 10,
               }}
@@ -236,9 +234,10 @@ const HomeScreen = () => {
       </TouchableOpacity>
     );
   }
+
   return (
     <SafeAreaView>
-     <Header/>
+      <Header />
       <FlatList
         data={DATA}
         renderItem={renderItem}

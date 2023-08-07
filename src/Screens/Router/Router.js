@@ -51,13 +51,12 @@ const LoginStack = () => {
 function HomeStack() {
   return (
     <Tab.Navigator
-      initialRouteName="Category"
+      initialRouteName="Product"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: '#e91e63',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
-          
           position: 'absolute',
           backgroundColor: '#fff',
           borderTopWidth: 0,
@@ -161,7 +160,7 @@ function HomeStack() {
       <Tab.Screen
         name="Profile"
         options={{
-          tabBarShowLabel:false,
+          tabBarShowLabel: false,
           tabBarLabelStyle: {
             fontSize: 16,
             fontWeight: 'bold',
