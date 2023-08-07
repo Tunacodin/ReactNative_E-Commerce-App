@@ -1,9 +1,19 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  Image,
+  ScrollView,
+} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {create} from 'react-test-renderer';
 import Header from '../../../../components/Logos/Header';
 import SmallCard from '../../../../components/Cards/SmallCard';
+import Swiper from 'react-native-swiper';
+
+const {width} = Dimensions.get('window');
 
 const ProductCardScreen = () => {
   return (
@@ -13,47 +23,99 @@ const ProductCardScreen = () => {
         backgroundColor: '#fff',
       }}>
       <Header />
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderBottomWidth: 1,
-          borderBottomColor: '#e0e0e0',
-        }}>
-        <Text>Henüz Sepetinizde bir ürün yok</Text>
-      </View>
-      <View style={{flex: 8, padding: 10}}>
-        <Text
+
+      <ScrollView>
+        <View
           style={{
-            fontSize: 20,
-            fontWeight: 'bold',
-            padding: 10,
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderBottomWidth: 1,
+            borderBottomColor: '#e0e0e0',
           }}>
-          Çok Satan Ürünler!
-        </Text>
-        <SmallCard
-          source={require('../../../Images/siyahtepsi.png')}
-          text="Mermer"
-        />
-      </View>
+          <Text>Henüz Sepetinizde bir ürün yok</Text>
+        </View>
+        <View style={{flex: 8, padding: 10}}>
+          <View>
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: 'bold',
+                padding: 10,
+              }}>
+              Katalog
+            </Text>
+            <SmallCard
+              source={require('../../../Images/siyahtepsi.png')}
+              text="Mermer"
+            />
+            <SmallCard
+              source={require('../../../Images/dekor.png')}
+              text="Ahşap"
+            />
+          </View>
+
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{
+              width: '100%',
+              paddingVertical: 5,
+            }}>
+            <Image
+              style={{
+                resizeMode: 'contain',
+                width: 210,
+                height: 300,
+                marginHorizontal: 5,
+                borderRadius: 10,
+              }}
+              source={require('../../../Images/aksesuar.png')}
+            />
+            <Image
+              style={{
+                resizeMode: 'contain',
+                width: 210,
+                height: 300,
+                marginHorizontal: 5,
+                borderRadius: 10,
+              }}
+              source={require('../../../Images/set.png')}
+            />
+            <Image
+              style={{
+                resizeMode: 'contain',
+                width: 210,
+                height: 300,
+                marginHorizontal: 5,
+                borderRadius: 10,
+              }}
+              source={require('../../../Images/set2.png')}
+            />
+          </ScrollView>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 export default ProductCardScreen;
 
-// styles stylesheet create
-
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  text: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  carousel: {
+    width: '100%',
+    height: 150,
+  },
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: 150,
   },
 });
