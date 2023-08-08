@@ -13,6 +13,7 @@ import Header from '../../../../components/Logos/Header';
 import SmallCard from '../../../../components/Cards/SmallCard';
 import Swiper from 'react-native-swiper';
 import ProductCard from '../../../../components/Cards/ProductCard';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const {width} = Dimensions.get('window');
 
@@ -25,37 +26,39 @@ const ProductCardScreen = () => {
       }}>
       <Header />
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
-            flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
             borderBottomWidth: 1,
             borderBottomColor: '#e0e0e0',
+            height: 400,
           }}>
-          <Text>Henüz Sepetinizde bir ürün yok</Text>
+          <Text
+            style={{
+              fontSize: 24,
+              fontFamily: 'Poppins-Medium',
+            }}>
+            Henüz Sepetinizde bir ürün yok
+          </Text>
+          <MaterialCommunityIcons
+            size={40}
+            name="cart-off"
+            color="#e0e0e0"
+            style={{marginTop: 20, marginBottom: 20}}
+          />
+          <Text
+            style={{
+              fontSize: 15,
+              fontFamily: 'Poppins-Regular',
+              textAlign: 'center',
+              padding: 20,
+            }}>
+            Sepetinize ürün eklemek için ürünlerimizi inceleyebilirsiniz
+          </Text>
         </View>
-        <View style={{flex: 8, padding: 10}}>
-          <View>
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: 'bold',
-                padding: 10,
-              }}>
-              Katalog
-            </Text>
-            <SmallCard
-              source={require('../../../Images/siyahtepsi.png')}
-              text="Mermer"
-            />
-            <SmallCard
-              source={require('../../../Images/dekor.png')}
-              text="Ahşap"
-            />
-          </View>
-
+        <View style={{padding: 10}}>
           <View
             style={{
               width,
@@ -71,8 +74,8 @@ const ProductCardScreen = () => {
             }}>
             <Text
               style={{
-                fontSize: 0,
-                fontWeight: 'bold',
+                fontFamily: 'Poppins-MediumItalic',
+                fontSize: 20,
               }}>
               Çok Satan Ürünler
             </Text>
@@ -117,14 +120,69 @@ const ProductCardScreen = () => {
               />
             </ScrollView>
           </View>
-          <View
+        </View>
+
+        <View
+          style={{
+            width,
+            height: 350,
+            shadowColor: 'black',
+            shadowRadius: 5,
+            shadowOffset: {
+              width: 0,
+              height: 6,
+            },
+            elevation: 8,
+            padding: 10,
+            marginBottom: 80,
+          }}>
+          <Text
             style={{
-              flexDirection: 'row',
-              gap: 5,
+              fontFamily: 'Poppins-MediumItalic',
+              fontSize: 20,
             }}>
-            <ProductCard />
-            <ProductCard />
-          </View>
+            Yeni Eklenen Ürünler
+          </Text>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{
+              width: '100%',
+              paddingVertical: 5,
+              borderTopWidth: 1,
+              borderEndWidth: 1,
+            }}>
+            <Image
+              style={{
+                resizeMode: 'contain',
+                width: 210,
+                height: 300,
+                marginHorizontal: 5,
+                borderRadius: 10,
+              }}
+              source={require('../../../Images/siyahtepsi.png')}
+            />
+            <Image
+              style={{
+                resizeMode: 'contain',
+                width: 210,
+                height: 300,
+                marginHorizontal: 5,
+                borderRadius: 10,
+              }}
+              source={require('../../../Images/sunum.png')}
+            />
+            <Image
+              style={{
+                resizeMode: 'contain',
+                width: 210,
+                height: 300,
+                marginHorizontal: 5,
+                borderRadius: 10,
+              }}
+              source={require('../../../Images/tasarım.png')}
+            />
+          </ScrollView>
         </View>
       </ScrollView>
     </SafeAreaView>

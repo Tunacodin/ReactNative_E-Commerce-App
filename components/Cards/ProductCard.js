@@ -210,9 +210,9 @@ const ProductCard = () => {
   return (
     <SafeAreaView>
       <FlatList
-        style={{
-          flexGrow: 2,
-        }}
+        style={{}}
+        numColumns={2}
+        columnWrapperStyle="space-between"
         data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}></FlatList>
