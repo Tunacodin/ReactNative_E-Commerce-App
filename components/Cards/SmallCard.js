@@ -1,29 +1,27 @@
-import React from 'react'
+import React from 'react';
 import {ImageBackground, View, Text, TouchableOpacity} from 'react-native';
 
-const SmallCard = ({text,source}) => {
+const SmallCard = ({text, source}) => {
   return (
     <TouchableOpacity activeOpacity={0.8}>
       <View
-        
         style={{
           width: '100%',
           height: 100,
           marginVertical: 3,
           shadowColor: '#000',
           borderRadius: 4,
+          shadowRadius: 2,
           shadowOffset: {
-            width: 5,
-            height: 5,
+            width: 0,
+            height: 2,
           },
-          shadowOpacity: 0.25,
-          elevation: 5,
-          
+          elevation: 4,
+          overflow: 'hidden',
         }}>
         <ImageBackground
           source={source}
           resizeMode="cover"
-          
           style={{flex: 1, justifyContent: 'center'}}>
           <Text
             style={{
@@ -34,7 +32,7 @@ const SmallCard = ({text,source}) => {
               fontFamily: 'cursive',
               textAlign: 'center',
               textAlignVertical: 'center',
-              backgroundColor: 'rgba(0,0,0,0.6)',
+              backgroundColor: 'rgba(0,0,0,0.4)',
             }}>
             {text}
           </Text>
@@ -42,6 +40,6 @@ const SmallCard = ({text,source}) => {
       </View>
     </TouchableOpacity>
   );
-}
+};
 
-export default SmallCard
+export default SmallCard;

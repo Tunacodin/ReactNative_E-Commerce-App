@@ -1,5 +1,5 @@
-import React from 'react'
-import { View } from 'react-native';
+import React from 'react';
+import {View} from 'react-native';
 import SmallCard from './SmallCard';
 
 const MermerListCard = () => {
@@ -27,6 +27,6 @@ const MermerListCard = () => {
       />
     </View>
   );
-}
+};
 
-export default MermerListCard
+export default MermerListCard;
