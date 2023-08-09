@@ -8,11 +8,13 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
+  ImageBackground,
+  ScrollView,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ButtonPrimary from '../../../../components/Buttons/ButtonPrimary';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {navigate} from '../../../Assets/RootNavigation';
 import Header from '../../../../components/Logos/Header';
 import AddToCart from '../../../../components/AddToCart/AddToCart';
@@ -157,10 +159,49 @@ const HomeScreen = () => {
   return (
     <SafeAreaView>
       <Header />
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}></FlatList>
+      <ScrollView>
+        <View
+          style={{
+            marginTop: -8,
+            marginBottom: 15,
+            width: '100%',
+            height: 200,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderBottomWidth: 1,
+            borderBottomColor: 'grey',
+          }}>
+          <Image
+            style={{
+              width: '120%',
+              height: '100%',
+              resizeMode: 'contain',
+            }}
+            source={require('../../../Images/banner.jpg')}
+          />
+        </View>
+        <View
+          style={{
+            backgroundColor: 'grey',
+            width: '100%',
+            height: 50,
+            alignItems: 'center',
+            marginBottom: 10,
+          }}>
+          <MaterialCommunityIcons
+            name="format-list-bulleted"
+            size={30}
+            color="white"
+            style={{
+              alignSelf: 'flex-start',
+              padding: 10,
+            }}></MaterialCommunityIcons>
+        </View>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}></FlatList>
+      </ScrollView>
     </SafeAreaView>
   );
 };
