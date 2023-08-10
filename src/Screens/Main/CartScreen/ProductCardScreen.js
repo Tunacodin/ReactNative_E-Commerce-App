@@ -38,7 +38,7 @@ const ProductCardScreen = () => {
           <Text
             style={{
               fontSize: 24,
-              fontFamily: 'Poppins-Regular',
+              fontFamily: 'Poppins-Medium',
             }}>
             Henüz Sepetinizde bir ürün yok
           </Text>

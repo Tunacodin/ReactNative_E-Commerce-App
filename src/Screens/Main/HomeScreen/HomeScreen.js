@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   ScrollView,
+  TextInput,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ButtonPrimary from '../../../../components/Buttons/ButtonPrimary';
@@ -18,6 +19,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {navigate} from '../../../Assets/RootNavigation';
 import Header from '../../../../components/Logos/Header';
 import AddToCart from '../../../../components/AddToCart/AddToCart';
+import * as RootNavigation from '../../../Assets/RootNavigation';
 
 const DATA = [
   {
@@ -63,7 +65,7 @@ const DATA = [
   },
 ];
 
-const HomeScreen = () => {
+const HomeScreen = ({navigate}) => {
   function renderItem({item, index}) {
     return (
       <TouchableOpacity
@@ -182,11 +184,15 @@ const HomeScreen = () => {
         </View>
         <View
           style={{
-            backgroundColor: 'grey',
+            flexDirection: 'row',
+            backgroundColor: 'black',
             width: '100%',
             height: 50,
             alignItems: 'center',
+            justifyContent: 'center',
             marginBottom: 10,
+            paddingHorizontal: 15,
+            alignSelf: 'center',
           }}>
           <MaterialCommunityIcons
             name="format-list-bulleted"
@@ -196,6 +202,37 @@ const HomeScreen = () => {
               alignSelf: 'flex-start',
               padding: 10,
             }}></MaterialCommunityIcons>
+          <TextInput
+            placeholder="Ara"
+            placeholderTextColor="black"
+            style={{
+              width: '70%',
+              height: 40,
+              backgroundColor: 'white',
+              borderRadius: 10,
+              alignSelf: 'center',
+              paddingLeft: 10,
+              borderWidth: 1,
+            }}
+          />
+          <MaterialCommunityIcons
+            name="bell-badge-outline"
+            size={30}
+            color="white"
+            style={{
+              alignSelf: 'flex-end',
+              padding: 10,
+            }}></MaterialCommunityIcons>
+          <MaterialCommunityIcons
+            name="account"
+            size={30}
+            color="white"
+            style={{
+              alignSelf: 'flex-end',
+              padding: 10,
+            }}
+            onPress={() => navigate('Profile')}></MaterialCommunityIcons>
+          <MaterialCommunityIcons></MaterialCommunityIcons>
         </View>
         <FlatList
           data={DATA}

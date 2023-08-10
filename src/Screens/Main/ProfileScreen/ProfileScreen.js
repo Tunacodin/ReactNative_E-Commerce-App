@@ -1,7 +1,7 @@
 import React from 'react';
 import auth from '@react-native-firebase/auth';
 
-import {View, Text,SafeAreaView} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import ButtonPrimary from '../../../../components/Buttons/ButtonPrimary';
 import ButtonSecondary from '../../../../components/Buttons/ButtonSecondary';
 import ButtonThird from '../../../../components/Buttons/ButtonThird';

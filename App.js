@@ -10,7 +10,7 @@ export default function App() {
     // wrap the app with login context provider
     <UserContextProvider>
       <Router />
-      
+
       <Toast />
     </UserContextProvider>
   );

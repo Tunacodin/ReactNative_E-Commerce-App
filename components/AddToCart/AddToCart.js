@@ -77,7 +77,7 @@ const AddToCart = ({price, discountedPrice}) => {
         </Text>
         <Pressable onPress={() => navigate('ProductDetails')}>
           <MaterialCommunityIcons
-            name="cart-plus"
+            name="cart"
             color="white"
             size={30}
             style={{

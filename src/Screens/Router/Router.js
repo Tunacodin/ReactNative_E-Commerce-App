@@ -188,16 +188,16 @@ function HomeStack() {
 
 const Router = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Tab.Screen
-          name="HomeStack"
-          component={HomeStack}
-          options={{headerShown: false}}
-        />
+    <NavigationContainer ref={navigationRef}>
+      <Stack.Navigator initialRouteName="HomeStack">
         <Tab.Screen
           name="LoginStack"
           component={LoginStack}
+          options={{headerShown: false}}
+        />
+        <Tab.Screen
+          name="HomeStack"
+          component={HomeStack}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
