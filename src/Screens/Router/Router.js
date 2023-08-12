@@ -51,7 +51,6 @@ const LoginStack = () => {
 function HomeStack() {
   return (
     <Tab.Navigator
-      initialRouteName="Product"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: '#e91e63',
@@ -136,7 +135,7 @@ function HomeStack() {
         component={ProductCardScreen}
       />
       <Tab.Screen
-        name="Notification"
+        name="Notifications"
         options={{
           tabBarLabelStyle: {
             fontSize: 16,

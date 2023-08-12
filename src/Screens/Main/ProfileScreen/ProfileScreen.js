@@ -8,8 +8,9 @@ import ButtonThird from '../../../../components/Buttons/ButtonThird';
 import {navigate} from '../../../Assets/RootNavigation';
 import {useState} from 'react';
 import Header from '../../../../components/Logos/Header';
+import FavoriteProducts from '../../../../components/Cards/FavoriteProducts';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({route}) => {
   const logout = () => {
     auth()
       .signOut()
@@ -18,7 +19,7 @@ const ProfileScreen = () => {
         navigate('LoginStack');
       });
   };
-
+  const {product} = route.params;
   return (
     <SafeAreaView
       style={{
@@ -26,6 +27,15 @@ const ProfileScreen = () => {
         backgroundColor: '#F9F5F2',
       }}>
       <Header />
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Image source={product.image} style={{width: 200, height: 200}} />
+        <Text>{product.title}</Text>
+        <Text>Price: {product.price}</Text>
+        <Text>Discounted Price: {product.discountedPrice}</Text>
+        <Text>Subtitle: {product.subtitle.p1}</Text>
+        <Text>{product.subtitle.p2}</Text>
+      </View>
+
       <View
         style={{
           flex: 1,

@@ -20,7 +20,9 @@ import {navigate} from '../../../Assets/RootNavigation';
 import Header from '../../../../components/Logos/Header';
 import AddToCart from '../../../../components/AddToCart/AddToCart';
 import * as RootNavigation from '../../../Assets/RootNavigation';
-
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import AddToCart2 from '../../../../components/AddToCart/AddToCart2';
 const DATA = [
   {
     id: '1',
@@ -65,12 +67,15 @@ const DATA = [
   },
 ];
 
-const HomeScreen = ({navigate}) => {
+const HomeScreen = ({navigation}) => {
   function renderItem({item, index}) {
     return (
       <TouchableOpacity
         activeOpacity={0.9}
-        style={{justifyContent: 'center', alignItems: 'center'}}>
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
         <View
           style={{
             width: '90%',
@@ -97,6 +102,21 @@ const HomeScreen = ({navigate}) => {
               justifyContent: 'center',
               borderRadius: 10,
             }}>
+            <MaterialCommunityIcons
+              name="heart"
+              size={25}
+              color="white"
+              style={{
+                backgroundColor: 'black',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'absolute',
+                top: 10,
+                right: 10,
+                zIndex: 99,
+                padding: 5,
+                borderRadius: 8,
+              }}></MaterialCommunityIcons>
             <Image
               style={{
                 width: '100%',
@@ -149,9 +169,9 @@ const HomeScreen = ({navigate}) => {
               {`\u2023 ${item.subtitle.p4}\n`}
             </Text>
           </View>
-          <AddToCart
+          <AddToCart2
             price={item.price}
-            discountedPrice={item.discountedPrice}
+            discountedprice={item.discountedPrice}
           />
         </View>
       </TouchableOpacity>
@@ -164,33 +184,12 @@ const HomeScreen = ({navigate}) => {
       <ScrollView>
         <View
           style={{
-            marginTop: -8,
-            marginBottom: 15,
-            width: '100%',
-            height: 200,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderBottomWidth: 1,
-            borderBottomColor: 'grey',
-          }}>
-          <Image
-            style={{
-              width: '120%',
-              height: '100%',
-              resizeMode: 'contain',
-            }}
-            source={require('../../../Images/banner.jpg')}
-          />
-        </View>
-        <View
-          style={{
             flexDirection: 'row',
             backgroundColor: 'black',
             width: '100%',
             height: 50,
             alignItems: 'center',
             justifyContent: 'center',
-            marginBottom: 10,
             paddingHorizontal: 15,
             alignSelf: 'center',
           }}>
@@ -219,6 +218,7 @@ const HomeScreen = ({navigate}) => {
             name="bell-badge-outline"
             size={30}
             color="white"
+            onPress={() => navigation.navigate('Notifications')}
             style={{
               alignSelf: 'flex-end',
               padding: 10,
@@ -231,8 +231,36 @@ const HomeScreen = ({navigate}) => {
               alignSelf: 'flex-end',
               padding: 10,
             }}
-            onPress={() => navigate('Profile')}></MaterialCommunityIcons>
+            onPress={() =>
+              navigation.navigate('Profile')
+            }></MaterialCommunityIcons>
           <MaterialCommunityIcons></MaterialCommunityIcons>
+        </View>
+        <View
+          style={{
+            marginTop: -8,
+            marginBottom: 15,
+            width: '100%',
+            height: 200,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderBottomColor: 'grey',
+            shadowColor: 'purple',
+            shadowOffset: {
+              width: 2,
+              height: 4,
+            },
+            shadowOpacity: 0.25,
+            elevation: 4,
+          }}>
+          <Image
+            style={{
+              width: '120%',
+              height: '100%',
+              resizeMode: 'contain',
+            }}
+            source={require('../../../Images/banner1.png')}
+          />
         </View>
         <FlatList
           data={DATA}

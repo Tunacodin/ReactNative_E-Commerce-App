@@ -1,6 +1,5 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-
+import React from 'react';
+import {View, Text} from 'react-native';
 
 const Header = () => {
   return (
@@ -11,7 +10,6 @@ const Header = () => {
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 5,
         borderRadius: 10,
         shadowColor: '#000',
         shadowOffset: {
@@ -32,6 +30,6 @@ const Header = () => {
       </Text>
     </View>
   );
-}
+};
 
-export default Header
+export default Header;
