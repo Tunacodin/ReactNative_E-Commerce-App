@@ -35,35 +35,50 @@ const DATA = [
     },
 
     price: '310₺',
-    discountedPrice: '120₺',
+    discountedPrice: '120TL',
     image: require('../../../Images/set.png'),
   },
   {
     id: '2',
     title: 'Fincan Takımlı Tepsi ',
-    subtitle:
-      'Fincan Takımlı Tepsi Seti / Ücretsiz Kargo / Ürünlerimiz El Yapımı Olduğu İçin 1-3 İş Günü İçerisinde Kargoya Teslim Edilir.',
+    subtitle: {
+      p1: 'Beyaz Mermer',
+      p2: 'Gümüş Kulp',
+      p3: 'Boyut: 30x50 ',
+      p4: 'Ücretsiz Kargo',
+    },
+
     image: require('../../../Images/set2.png'),
     price: '460₺',
-    discountedPrice: '490₺',
+    discountedPrice: '490TL',
   },
   {
     id: '3',
     title: 'İkili Altın Set',
-    subtitle:
-      'Afrodit Set Altın Mermer / Ücretsiz Kargo / Ürünlerimiz El Yapımı Olduğu İçin 1-3 İş Günü İçerisinde Kargoya Teslim Edilir.',
+    subtitle: {
+      p1: 'Beyaz Mermer',
+      p2: 'Gümüş Kulp',
+      p3: 'Boyut: 30x50 ',
+      p4: 'Ücretsiz Kargo',
+    },
+
     image: require('../../../Images/Figür.png'),
     price: '540₺',
-    discountedPrice: '430₺',
+    discountedPrice: '430TL',
   },
   {
     id: '4',
     title: 'Masa Lambası',
-    subtitle:
-      'Masa Lambası / Ücretsiz Kargo / Ürünlerimiz El Yapımı Olduğu İçin 1-3 İş Günü İçerisinde Kargoya Teslim Edilir.',
+    subtitle: {
+      p1: 'Beyaz Mermer',
+      p2: 'Gümüş Kulp',
+      p3: 'Boyut: 30x50 ',
+      p4: 'Ücretsiz Kargo',
+    },
+
     image: require('../../../Images/siyahtepsi.png'),
     price: '630₺',
-    discountedPrice: '230 ₺',
+    discountedPrice: '230TL',
   },
 ];
 
@@ -116,6 +131,7 @@ const HomeScreen = ({navigation}) => {
                 zIndex: 99,
                 padding: 5,
                 borderRadius: 8,
+                marginRight: 4,
               }}></MaterialCommunityIcons>
             <Image
               style={{

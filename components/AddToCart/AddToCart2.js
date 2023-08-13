@@ -2,48 +2,52 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const AddToCart2 = ({price, discountedprice}) => {
+const AddToCart2 = ({price, discountedprice, navigation}) => {
   return (
     <View
       style={{
         width: '100%',
-        height: 50,
+        height: 60,
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',
         paddingHorizontal: 30,
-        backgroundColor: '#FEBBCC',
+        backgroundColor: '#e91e63',
+
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
-        borderTopWidth: 1,
-        borderColor: '#445069',
+        borderWidth: 1,
+        borderColor: '#e91e63',
       }}>
       <View
         style={{
           width: '40%',
-          height: '100%',
+          height: '90%',
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          flexDirection: 'column',
           backgroundColor: 'white',
-          padding: 12,
+          padding: 9,
+          borderRadius: 10,
+          marginLeft: -15,
         }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: 'Poppins-Medium',
+            color: '#445069',
+            textDecorationLine: 'line-through',
+            paddingRight: 3,
+          }}>
+          {price}
+        </Text>
         <Text
           style={{
             fontSize: 20,
             fontFamily: 'Poppins-Medium',
+            color: 'black',
           }}>
           {discountedprice}
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            fontFamily: 'Poppins-Medium',
-            color: '#445069',
-            textDecorationLine: 'line-through',
-          }}>
-          {price}
         </Text>
       </View>
       <View>
@@ -51,7 +55,7 @@ const AddToCart2 = ({price, discountedprice}) => {
           style={{
             fontSize: 20,
             fontFamily: 'Poppins-Medium',
-            color: '#D14D72',
+            color: 'white',
           }}>
           Sepete Ekle
         </Text>
@@ -59,12 +63,15 @@ const AddToCart2 = ({price, discountedprice}) => {
       <View>
         <MaterialCommunityIcons
           name="cart"
-          size={30}
-          color="black"
+          size={25}
+          color="white"
+          onPress={() => navigation.navigate('Profile')}
           style={{
-            alignSelf: 'flex-end',
-            padding: 10,
-            borderColor: 'white',
+            alignSelf: 'center',
+            padding: 7,
+            borderRadius: 10,
+            marginRight: -20,
+            backgroundColor: 'black',
           }}></MaterialCommunityIcons>
       </View>
     </View>
