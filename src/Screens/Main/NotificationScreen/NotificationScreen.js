@@ -190,6 +190,34 @@ const NotificationScreen = () => {
                 <Text>Güvenilir Ödeme</Text>
               </View>
             </View>
+            <View
+              style={{
+                width: '100%',
+                flexDirection: 'row',
+                height: 100,
+                shadowColor: 'black',
+                shadowRadius: 5,
+                shadowOffset: {
+                  width: 0,
+                  height: 6,
+                },
+                elevation: 8,
+                backgroundColor: 'white',
+                borderTopWidth: 1,
+                borderTopColor: 'lightgrey',
+                padding: 10,
+              }}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontFamily: 'Poppins-Medium',
+                  textAlign: 'center',
+                  marginTop: 10,
+                }}>
+                Beğendiğin ürünleri favorilere ekle, indirime girdiği zaman
+                anında haberdar ol!
+              </Text>
+            </View>
           </View>
         </View>
       </ScrollView>

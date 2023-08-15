@@ -52,6 +52,7 @@ const ProfileScreen = ({route}) => {
             style={{
               fontFamily: 'Poppins-SemiBold',
               fontSize: 20,
+              color: 'black',
             }}>
             Hoş Geldiniz
           </Text>
@@ -63,7 +64,7 @@ const ProfileScreen = ({route}) => {
             <MaterialCommunityIcons
               name="account-circle"
               size={100}
-              color="darkgrey"
+              color="grey"
               style={{
                 alignSelf: 'center',
                 justifyContent: 'center',
@@ -83,6 +84,9 @@ const ProfileScreen = ({route}) => {
           style={{
             width: '100%',
             padding: 10,
+            flexDirection: 'column',
+            rowGap: 10,
+            backgroundColor: 'white',
           }}>
           <TouchableOpacity activeOpacity={0.9}>
             <View
@@ -128,28 +132,121 @@ const ProfileScreen = ({route}) => {
               </Text>
             </View>
           </TouchableOpacity>
-        </View>
 
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#F9F5F2',
-
-            marginBottom: 20,
-          }}>
-          <Text
+          <View
             style={{
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'darkblue',
-              marginBottom: 20,
+              flex: 1,
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 5,
             }}>
-            Profile Screen
-          </Text>
+            <MaterialCommunityIcons
+              name="logout"
+              size={24}
+              onPress={() => navigate(logout)}></MaterialCommunityIcons>
+            <Text
+              style={{
+                fontSize: 24,
+                fontFamily: 'Poppins-Medium',
+              }}>
+              Çıkış Yap
+            </Text>
+          </View>
 
-          <ButtonThird yazı="Logout" onPress={logout} />
+          <View
+            style={{
+              flex: 1,
+              width: '100%',
+              alignItems: 'center',
+              justifyContent: 'center',
+              alignSelf: 'center',
+              padding: 10,
+              margin: 30,
+              borderWidth: 1,
+              borderColor: 'darkgrey',
+              borderRadius: 10,
+              marginTop: 10,
+              backgroundColor: 'white',
+              marginTop: 100,
+            }}>
+            <Text
+              style={{
+                fontSize: 24,
+                fontFamily: 'Poppins-Medium',
+                color: 'black',
+                padding: 10,
+              }}>
+              Bize Ulaşın
+            </Text>
+            <View
+              style={{
+                width: '100%',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
+              <TouchableOpacity
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  columnGap: 4,
+                }}>
+                <MaterialCommunityIcons
+                  name="instagram"
+                  size={28}
+                  color="black"></MaterialCommunityIcons>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'Poppins-Medium',
+                  }}>
+                  fenneDesign
+                </Text>
+              </TouchableOpacity>
+              <View>
+                <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    columnGap: 2,
+                  }}>
+                  <MaterialCommunityIcons
+                    name="phone"
+                    size={28}
+                    color="black"></MaterialCommunityIcons>
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      fontFamily: 'Poppins-Medium',
+                    }}>
+                    0526-822-09-11
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            <View>
+              <TouchableOpacity
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginTop: 20,
+                  columnGap: 15,
+                }}>
+                <MaterialCommunityIcons
+                  name="map-marker-multiple"
+                  size={24}
+                  color="black"></MaterialCommunityIcons>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'Poppins-Medium',
+                  }}>
+                  Bağbaşı, Vatan Cd No:95, 20160 Pamukkale/Denizli
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -74,11 +74,12 @@ function HomeStack() {
       <Tab.Screen
         name="Home"
         options={{
+          tabBarLabel: 'Anasayfa',
+
           tabBarLabelStyle: {
-            fontSize: 16,
-            fontWeight: 'bold',
+            fontSize: 14,
             marginBottom: 5,
-            fontFamily: 'cursive',
+            fontFamily: 'Poppins-Regular',
           },
           tabBarIcon: ({focused}) => (
             <View style={focused ? focusedStyle : {}}>
@@ -96,11 +97,12 @@ function HomeStack() {
       <Tab.Screen
         name="Category"
         options={{
+          tabBarLabel: 'Kategori',
+
           tabBarLabelStyle: {
             fontSize: 16,
-            fontWeight: 'bold',
             marginBottom: 5,
-            fontFamily: 'cursive',
+            fontFamily: 'Poppins-Regular',
           },
           tabBarIcon: ({focused}) => (
             <View style={focused ? focusedStyle : {}}>
@@ -117,11 +119,11 @@ function HomeStack() {
       <Tab.Screen
         name="ProductCard"
         options={{
+          tabBarLabel: 'Sepet',
           tabBarLabelStyle: {
             fontSize: 16,
-            fontWeight: 'bold',
             marginBottom: 5,
-            fontFamily: 'cursive',
+            fontFamily: 'Poppins-Regular',
           },
           tabBarIcon: ({focused}) => (
             <View style={focused ? focusedStyle : {}}>
@@ -138,11 +140,12 @@ function HomeStack() {
       <Tab.Screen
         name="Notifications"
         options={{
+          tabBarLabel: 'Bildirimler',
+
           tabBarLabelStyle: {
-            fontSize: 16,
-            fontWeight: 'bold',
+            fontSize: 14,
             marginBottom: 5,
-            fontFamily: 'cursive',
+            fontFamily: 'Poppins-Regular',
           },
           tabBarIcon: ({focused}) => (
             <View style={focused ? focusedStyle : {}}>
@@ -163,9 +166,8 @@ function HomeStack() {
           tabBarShowLabel: true,
           tabBarLabelStyle: {
             fontSize: 16,
-            fontWeight: 'bold',
             marginBottom: 5,
-            fontFamily: 'cursive',
+            fontFamily: 'Poppins-Regular',
           },
 
           tabBarIcon: ({focused}) => (
