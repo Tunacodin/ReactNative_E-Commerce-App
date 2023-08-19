@@ -17,7 +17,7 @@ import auth from '@react-native-firebase/auth';
 import Toast from 'react-native-toast-message';
 import HomeScreen from '../Main/HomeScreen/HomeScreen';
 
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -38,17 +38,17 @@ const RegisterScreen = () => {
         showToast('Kullanıcı Oluşturuldu!', 'success');
         setEmail('');
         setPassword('');
-        navigate('Login');
+        navigation.navigate('Login');
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
           console.log('That email address is already in use!');
-          showToast('Bu mail adresi zaten kullanılıyor!');
+          showToast('Bu mail adresi zaten kullanılıyor!', error);
         }
 
         if (error.code === 'auth/invalid-email') {
           console.log('That email address is invalid!');
-          showToast('Geçersiz mail adresi!', '');
+          showToast('Geçersiz mail adresi!', error);
         }
 
         console.error(error);
@@ -69,7 +69,14 @@ const RegisterScreen = () => {
         <Image
           resizeMode="contain"
           source={require('../../Images/Logo.png')}
-          style={{width: '85%', height: '20%'}}
+          style={{
+            width: '75%',
+            height: '30%',
+            borderTopLeftRadius: 40,
+            borderBottomRightRadius: 40,
+            borderWidth: 1,
+            borderColor: 'darkblue',
+          }}
         />
 
         <View

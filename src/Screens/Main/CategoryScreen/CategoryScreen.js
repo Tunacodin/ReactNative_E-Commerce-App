@@ -11,7 +11,10 @@ import {useFonts} from 'react-native-google-fonts';
 const {width} = Dimensions.get('window');
 const CategoryScreen = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={{
+        height: '95%',
+      }}>
       <Header />
 
       <ScrollView>

@@ -51,7 +51,6 @@ const LoginStack = () => {
 function HomeStack() {
   return (
     <Tab.Navigator
-      initialRouteName="Profile"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: '#e91e63',
@@ -190,8 +189,8 @@ function HomeStack() {
 
 const Router = () => {
   return (
-    <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator initialRouteName="HomeStack">
+    <NavigationContainer>
+      <Stack.Navigator>
         <Tab.Screen
           name="LoginStack"
           component={LoginStack}

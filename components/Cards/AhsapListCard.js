@@ -11,20 +11,26 @@ const AhsapListCard = () => {
         borderRadius: 10,
         marginBottom: 60,
       }}>
-      <SmallCard source={require('../../src/Images/set2.png')} text="Setler" />
-      <SmallCard
-        source={require('../../src/Images/siyahtepsi.png')}
-        text="Tepsiler"
-      />
       <SmallCard
         source={require('../../src/Images/dekor.png')}
-        text="Dekorasyon"
+        text="Aydınlatma Ürünleri"
       />
 
-      <SmallCard source={require('../../src/Images/sunum.png')} text="Sunum" />
+      <SmallCard
+        source={require('../../src/Images/sunum.png')}
+        text="Hediyelikler"
+      />
+      <SmallCard
+        source={require('../../src/Images/set2.png')}
+        text="Ahsap Ürünler"
+      />
       <SmallCard
         source={require('../../src/Images/aksesuar.png')}
-        text="Aksesuar"
+        text="Sunum Ürünleri"
+      />
+      <SmallCard
+        source={require('../../src/Images/siyahtepsi.png')}
+        text="Masa Lambası"
       />
     </View>
   );

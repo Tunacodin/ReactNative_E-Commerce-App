@@ -195,7 +195,10 @@ const HomeScreen = ({navigation}) => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={{
+        height: '95%',
+      }}>
       <Header />
       <ScrollView>
         <View
@@ -250,7 +253,6 @@ const HomeScreen = ({navigation}) => {
             onPress={() =>
               navigation.navigate('Profile')
             }></MaterialCommunityIcons>
-          <MaterialCommunityIcons></MaterialCommunityIcons>
         </View>
         <View
           style={{
@@ -271,7 +273,7 @@ const HomeScreen = ({navigation}) => {
           }}>
           <Image
             style={{
-              width: '120%',
+              width: '110%',
               height: '100%',
               resizeMode: 'contain',
             }}

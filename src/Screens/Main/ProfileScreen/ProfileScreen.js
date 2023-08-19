@@ -1,33 +1,33 @@
 import React from 'react';
-import auth from '@react-native-firebase/auth';
 
 import {
   View,
   Text,
   SafeAreaView,
-  Image,
   ScrollView,
-  ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import ButtonPrimary from '../../../../components/Buttons/ButtonPrimary';
-import ButtonSecondary from '../../../../components/Buttons/ButtonSecondary';
-import ButtonThird from '../../../../components/Buttons/ButtonThird';
-import {navigate} from '../../../Assets/RootNavigation';
-import {useState} from 'react';
 import Header from '../../../../components/Logos/Header';
-import FavoriteProducts from '../../../../components/Cards/FavoriteProducts';
-import {UserContext} from '../../../Contexts/UserContext';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import auth from '@react-native-firebase/auth';
 
-const ProfileScreen = ({route}) => {
-  const logout = () => {
-    auth()
-      .signOut()
-      .then(() => {
-        console.log('User signed out!', 'success');
-        navigate('LoginStack');
-      });
+const ProfileScreen = ({navigation}) => {
+  const handleSignOut = async () => {
+    const user = auth().currentUser; // Mevcut oturum açmış kullanıcıyı alın
+
+    if (user) {
+      try {
+        await auth().signOut();
+        console.log('User signed out successfully.');
+        // İstediğiniz ek işlemleri burada gerçekleştirebilirsiniz.
+        navigation.navigate('HomeStack');
+      } catch (error) {
+        console.error('Error signing out:', error);
+      }
+    } else {
+      console.log('No user currently signed in.');
+      // Kullanıcı zaten oturum açık değilse gereken bir işlem yapmayın.
+    }
   };
   return (
     <SafeAreaView
@@ -96,13 +96,16 @@ const ProfileScreen = ({route}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 gap: 5,
+                borderBottomWidth: 1,
+                borderColor: 'lightgrey',
+                padding: 5,
               }}>
               <MaterialCommunityIcons
                 name="cart"
                 size={24}></MaterialCommunityIcons>
               <Text
                 style={{
-                  fontSize: 24,
+                  fontSize: 20,
                   fontFamily: 'Poppins-Medium',
                 }}>
                 Siparişlerim
@@ -118,6 +121,9 @@ const ProfileScreen = ({route}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 gap: 5,
+                borderBottomWidth: 1,
+                borderColor: 'lightgrey',
+                padding: 5,
               }}>
               <MaterialCommunityIcons
                 name="star"
@@ -125,7 +131,7 @@ const ProfileScreen = ({route}) => {
                 color="orange"></MaterialCommunityIcons>
               <Text
                 style={{
-                  fontSize: 24,
+                  fontSize: 20,
                   fontFamily: 'Poppins-Medium',
                 }}>
                 Favori Ürünlerim
@@ -139,18 +145,22 @@ const ProfileScreen = ({route}) => {
               flexDirection: 'row',
               alignItems: 'center',
               gap: 5,
+              padding: 5,
+              borderBottomWidth: 1,
+              borderColor: 'lightgrey',
             }}>
-            <MaterialCommunityIcons
-              name="logout"
-              size={24}
-              onPress={() => navigate(logout)}></MaterialCommunityIcons>
-            <Text
-              style={{
-                fontSize: 24,
-                fontFamily: 'Poppins-Medium',
-              }}>
-              Çıkış Yap
-            </Text>
+            <TouchableOpacity onPress={handleSignOut}>
+              <MaterialCommunityIcons
+                name="logout"
+                size={24}></MaterialCommunityIcons>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontFamily: 'Poppins-Medium',
+                }}>
+                Çıkış Yap
+              </Text>
+            </TouchableOpacity>
           </View>
 
           <View
@@ -171,7 +181,7 @@ const ProfileScreen = ({route}) => {
             }}>
             <Text
               style={{
-                fontSize: 24,
+                fontSize: 20,
                 fontFamily: 'Poppins-Medium',
                 color: 'black',
                 padding: 10,
@@ -239,7 +249,8 @@ const ProfileScreen = ({route}) => {
                   color="black"></MaterialCommunityIcons>
                 <Text
                   style={{
-                    fontSize: 20,
+                    textAlign: 'center',
+                    fontSize: 15,
                     fontFamily: 'Poppins-Medium',
                   }}>
                   Bağbaşı, Vatan Cd No:95, 20160 Pamukkale/Denizli
