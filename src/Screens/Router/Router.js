@@ -85,7 +85,7 @@ function HomeStack() {
               <MaterialCommunityIcons
                 name="home"
                 color={focused ? '#e91e63' : 'gray'}
-                size={focused ? 30 : 25}
+                size={focused ? 25 : 20}
               />
             </View>
           ),
@@ -108,7 +108,7 @@ function HomeStack() {
               <MaterialCommunityIcons
                 name="dots-grid"
                 color={focused ? '#e91e63' : 'gray'}
-                size={focused ? 30 : 25}
+                size={focused ? 25 : 20}
               />
             </View>
           ),
@@ -129,7 +129,7 @@ function HomeStack() {
               <MaterialCommunityIcons
                 name="cart"
                 color={focused ? '#e91e63' : 'gray'}
-                size={focused ? 30 : 25}
+                size={focused ? 25 : 20}
               />
             </View>
           ),
@@ -151,7 +151,7 @@ function HomeStack() {
               <MaterialCommunityIcons
                 name="bell"
                 color={focused ? '#e91e63' : 'gray'}
-                size={focused ? 30 : 25}
+                size={focused ? 25 : 20}
               />
             </View>
           ),
@@ -174,7 +174,7 @@ function HomeStack() {
               <MaterialCommunityIcons
                 name="account"
                 color={focused ? '#e91e63' : 'gray'}
-                size={focused ? 30 : 25}
+                size={focused ? 25 : 20}
               />
             </View>
           ),

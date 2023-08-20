@@ -6,7 +6,7 @@ const ButtonFourth = ({yazı, onPress}) => {
     <Pressable
       onPress={onPress}
       style={{
-        backgroundColor: 'limegreen',
+        backgroundColor: '#A076F9',
         width: '90%',
         height: 50,
         borderRadius: 10,

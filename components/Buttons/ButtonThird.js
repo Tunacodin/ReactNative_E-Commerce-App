@@ -6,14 +6,16 @@ const ButtonThird = ({yazı, onPress}) => {
     <Pressable
       onPress={onPress}
       style={{
-        backgroundColor:"darkblue",
+        backgroundColor: 'white',
         width: '90%',
         height: 50,
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
+        borderWidth: 1,
+        borderColor: 'darkblue',
       }}>
-      <Text style={{color: 'white'}}>{yazı}</Text>
+      <Text style={{color: 'darkblue'}}>{yazı}</Text>
     </Pressable>
   );
 };

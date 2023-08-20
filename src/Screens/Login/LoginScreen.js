@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {SafeAreaView, View, Text, TextInput, Image} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TextInput,
+  Image,
+  ImageBackground,
+} from 'react-native';
 import Input from '../../../components/Input/Input';
 import ButtonPrimary from '../../../components/Buttons/ButtonPrimary';
 import ButtonSecondary from '../../../components/Buttons/ButtonSecondary';
@@ -48,12 +55,22 @@ const LoginScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
+      <ImageBackground
+        source={require('../../Images/bg.png')}
+        style={{
+          resizeMode: 'fill',
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          zIndex: -10,
+        }}
+      />
       <View
         style={{
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: '#F9F5F2',
+
           justifyContent: 'space-evenly',
           marginTop: 20,
         }}>
@@ -63,10 +80,9 @@ const LoginScreen = ({navigation}) => {
           style={{
             width: '75%',
             height: '30%',
-            borderTopLeftRadius: 40,
-            borderBottomRightRadius: 40,
+            borderRadius: 20,
             borderWidth: 1,
-            borderColor: 'darkblue',
+            borderColor: 'black',
           }}
         />
 

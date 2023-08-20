@@ -67,6 +67,15 @@ const NotificationScreen = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}>
+                  <Text style={styles.text}>İndirimde Olanlar</Text>
+                </View>
+                <View
+                  style={{
+                    height: 50,
+                    marginHorizontal: 5,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
                   <Text style={styles.text}>Sipariş Geçmişim</Text>
                 </View>
                 <View
@@ -85,7 +94,7 @@ const NotificationScreen = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                   }}>
-                  <Text style={styles.text}>Sİptal edilenler</Text>
+                  <Text style={styles.text}>İptal edilenler</Text>
                 </View>
               </ScrollView>
             </View>

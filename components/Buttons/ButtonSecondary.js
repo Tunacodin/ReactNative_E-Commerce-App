@@ -1,7 +1,7 @@
 import {Text, Pressable} from 'react-native';
 import React from 'react';
 
-const ButtonSecondary = ({text, onPress}) => {
+const ButtonSecondary = ({text, onPress, color}) => {
   return (
     <Pressable
       onPress={onPress}
@@ -12,7 +12,7 @@ const ButtonSecondary = ({text, onPress}) => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Text style={{color: 'grey'}}>{text}</Text>
+      <Text style={{color: 'black'}}>{text}</Text>
     </Pressable>
   );
 };

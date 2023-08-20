@@ -139,19 +139,21 @@ const ProfileScreen = ({navigation}) => {
             </View>
           </TouchableOpacity>
 
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: 5,
-              padding: 5,
-              borderBottomWidth: 1,
-              borderColor: 'lightgrey',
-            }}>
-            <TouchableOpacity onPress={handleSignOut}>
+          <TouchableOpacity activeOpacity={0.9}>
+            <View
+              style={{
+                flex: 1,
+                width: '100%',
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 5,
+                borderBottomWidth: 1,
+                borderColor: 'lightgrey',
+                padding: 5,
+              }}>
               <MaterialCommunityIcons
                 name="logout"
+                onPress={handleSignOut}
                 size={24}></MaterialCommunityIcons>
               <Text
                 style={{
@@ -160,8 +162,8 @@ const ProfileScreen = ({navigation}) => {
                 }}>
                 Çıkış Yap
               </Text>
-            </TouchableOpacity>
-          </View>
+            </View>
+          </TouchableOpacity>
 
           <View
             style={{

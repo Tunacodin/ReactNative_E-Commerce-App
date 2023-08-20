@@ -6,6 +6,7 @@ import {
   Image,
   TextInput,
   useWindowDimensions,
+  ImageBackground,
 } from 'react-native';
 import Input from '../../../components/Input/Input';
 import ButtonPrimary from '../../../components/Buttons/ButtonPrimary';
@@ -57,12 +58,22 @@ const RegisterScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
+      <ImageBackground
+        source={require('../../Images/bg.png')}
+        style={{
+          resizeMode: 'fill',
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          zIndex: -10,
+        }}
+      />
       <View
         style={{
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: '#F9F5F2',
+
           justifyContent: 'space-evenly',
           marginTop: 20,
         }}>
@@ -72,10 +83,9 @@ const RegisterScreen = ({navigation}) => {
           style={{
             width: '75%',
             height: '30%',
-            borderTopLeftRadius: 40,
-            borderBottomRightRadius: 40,
+            borderRadius: 20,
             borderWidth: 1,
-            borderColor: 'darkblue',
+            borderColor: 'black',
           }}
         />
 
@@ -98,21 +108,20 @@ const RegisterScreen = ({navigation}) => {
             onChangeText={text => setPassword(text)}
           />
         </View>
+
         <View
           style={{
             width: '100%',
             justifyContent: 'center',
             alignItems: 'center',
             gap: 10,
+            marginBottom: 20,
           }}>
-          <ButtonFourth onPress={_handleSignupPress} yazı="Kayıt Ol" />
+          <ButtonPrimary text="Kayıt Ol" onPress={_handleSignupPress} />
+          {/*Butona tıklayınca  kontrol eder::     <ButtonPrimary text="Giriş Yap" onPress={_handleLoginPress} /> */}
+          {/*Her harf girdiğinde kontrol eder::     <ButtonPrimary text="Giriş Yap" onPress={_handleLoginPress()} /> */}
 
           <ButtonThird yazı="Google ile Devam Et" />
-
-          <ButtonSecondary
-            onPress={() => navigate('Login')}
-            yazı="Zaten bir hesabın var mı?"
-          />
         </View>
       </View>
     </SafeAreaView>

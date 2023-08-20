@@ -26,10 +26,9 @@ const SmallCard = ({text, source}) => {
           <Text
             style={{
               flex: 1,
-              fontSize: 30,
-              fontWeight: 'bold',
               color: 'white',
-              fontFamily: 'cursive',
+              fontSize: 20,
+              fontFamily: 'Poppins-Regular',
               textAlign: 'center',
               textAlignVertical: 'center',
               backgroundColor: 'rgba(0,0,0,0.4)',
