@@ -149,7 +149,7 @@ const ProfileScreen = ({navigation}) => {
                 gap: 5,
                 borderBottomWidth: 1,
                 borderColor: 'lightgrey',
-                padding: 5,
+                padding: 4,
               }}>
               <MaterialCommunityIcons
                 name="logout"
