@@ -49,10 +49,7 @@ const NotificationScreen = () => {
       </View>
       <ScrollView>
         <View>
-          <View
-            style={{
-              marginTop: 10,
-            }}>
+          <View>
             <View
               style={{
                 height: 50,
@@ -206,6 +203,7 @@ const NotificationScreen = () => {
                 height: 100,
                 shadowColor: 'black',
                 shadowRadius: 5,
+
                 shadowOffset: {
                   width: 0,
                   height: 6,
@@ -214,11 +212,11 @@ const NotificationScreen = () => {
                 backgroundColor: 'white',
                 borderTopWidth: 1,
                 borderTopColor: 'lightgrey',
-                padding: 10,
+                paddingHorizontal: 20,
               }}>
               <Text
                 style={{
-                  fontSize: 20,
+                  fontSize: 19,
                   fontFamily: 'Poppins-Medium',
                   textAlign: 'center',
                   marginTop: 10,
