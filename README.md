@@ -1,5 +1,5 @@
 # E-Commerce-App
-## Screenshots
+## Application Screenshots
 
 | Login Page | Register Page | Home Page |
 | --- | --- | --- |
